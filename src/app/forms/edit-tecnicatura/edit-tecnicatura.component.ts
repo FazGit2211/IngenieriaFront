@@ -21,7 +21,7 @@ export class EditTecnicaturaComponent implements OnInit {
   constructor(private router: ActivatedRoute, private formBuilder: FormBuilder, private tecnicaturaService: TecnicaturaService) {
     this.dataForm = this.formBuilder.group({
       tecnicatura: this.formBuilder.group({
-        nombre: [this.tecnicaturaData.nombre],
+        nombre: [''],
         duracion: [''],
         cantidadAsignaturas: [''],
         numeroDeResolucion: ['']
