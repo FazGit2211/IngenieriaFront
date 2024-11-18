@@ -11,15 +11,15 @@
         </tr>
     </thead>
     <tbody>
+        @for(tec of tecnicaturas; track tec.id){
         <tr>
-            @for(tec of tecnicaturas; track tec.id){
-            <td>{tec.nombre}</td>
-            <td>{tec.duracion}</td>
-            <td>{tec.cantidadAsignaturas}</td>
-            <td>{tec.numeroDeResolucion}</td>
-            <td>acciones</td>
-            }
+            <td>{{tec.nombre}}</td>
+            <td>{{tec.duracion}}</td>
+            <td>{{tec.cantidadAsignaturas}}</td>
+            <td>{{tec.numeroResolucion}}</td>
+            <td><button [routerLink]="['/editTecForm', tec.id]">Editar</button><button routerLink="/deleteTecForm">Eliminar</button></td>
         </tr>
+        }
     </tbody>
 </table>
-<button type="submit" (click)="onSubmit()">Enviar</button>
+<button (click)="onSubmit()">Enviar</button>

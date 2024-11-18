@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { TecnicaturaService } from '../../services/tecnicaturaService/tecnicatura.service';
+import { Tecnicatura } from '../../../backend/tecnicatura/tecnicatura';
 
 @Component({
   selector: 'app-create-tecnicatura',
@@ -11,7 +13,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class CreateTecnicaturaComponent {
   dataForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private tecnicaturaService: TecnicaturaService) {
     this.dataForm = this.formBuilder.group({
       tecnicatura: this.formBuilder.group({
         nombre: [''],
@@ -30,6 +32,11 @@ export class CreateTecnicaturaComponent {
   }
 
   onSubmit() {
-    console.log('Enviado')
+    console.log('Enviando');
+    const tecnicatura = new Tecnicatura(this.dataForm.value.tecnicatura.nombre,this.dataForm.value.tecnicatura.duracion,this.dataForm.value.tecnicatura.cantidadAsignaturas,this.dataForm.value.tecnicatura.numeroDeResolucion);
+    this.tecnicaturaService.postTecnicatura(tecnicatura).subscribe(
+      response => {console.log(response)},
+      error => {console.log(error)}
+    );
   }
 }
