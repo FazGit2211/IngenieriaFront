@@ -61,7 +61,10 @@ export class EditTecnicaturaComponent implements OnInit {
   onSubmit() {
     console.log('Enviando');
     const tecnicatura = new Tecnicatura(this.dataForm.value.tecnicatura.nombre, this.dataForm.value.tecnicatura.duracion, this.dataForm.value.tecnicatura.cantidadAsignaturas, this.dataForm.value.tecnicatura.numeroDeResolucion);
-    this.tecnicaturaService.putTecnicatura(this.tecnicaturaId,tecnicatura);
+    this.tecnicaturaService.putTecnicatura(this.tecnicaturaId,tecnicatura).subscribe(
+      response => {console.log(response)},
+      error => console.error(error)
+    );
   }
 
 }
