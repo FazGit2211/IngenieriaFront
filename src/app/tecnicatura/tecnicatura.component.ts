@@ -23,4 +23,8 @@ export class TecnicaturaComponent implements OnInit{
   onSubmit(){
     console.log(this.tecnicaturas)
   }
+
+  eliminar(id:number){
+    console.log(id);
+  }
 }

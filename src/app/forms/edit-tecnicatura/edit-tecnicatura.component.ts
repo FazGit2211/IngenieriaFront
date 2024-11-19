@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+
+
 import { TecnicaturaService } from '../../services/tecnicaturaService/tecnicatura.service';
 import { Tecnicatura } from '../../../backend/tecnicatura/tecnicatura';
+import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-tecnicatura',
@@ -15,8 +17,6 @@ export class EditTecnicaturaComponent implements OnInit {
 
   //variable para el id seleccionado desde el componente tecnicatura
   tecnicaturaId: any;
-  //variable para guardar los datos de la tecnicatura encontrada por id
-  tecnicaturaData: any;
   dataForm: FormGroup;
   constructor(private router: ActivatedRoute, private formBuilder: FormBuilder, private tecnicaturaService: TecnicaturaService) {
     this.dataForm = this.formBuilder.group({
@@ -35,10 +35,19 @@ export class EditTecnicaturaComponent implements OnInit {
       params => { this.tecnicaturaId = params.get('id'); console.log(this.tecnicaturaId) },
       error => { console.log(error) }
     );
-    //solicitar servicio getById
+    //solicitar servicio getById y autocompletar los campos con valores de la tecnicatura obtenida
     this.tecnicaturaService.getByIdTecnicatura(this.tecnicaturaId).subscribe(
-      response => {this.tecnicaturaData = response;console.log(response)},
-      error => {console.error(error)}
+      response => {
+        this.dataForm.patchValue({
+          tecnicatura: {
+            nombre: response.nombre,
+            duracion: response.duracion,
+            cantidadAsignaturas: response.cantidadAsignaturas,
+            numeroDeResolucion: response.numeroResolucion
+          }
+        })
+      },
+      error => { console.error(error) }
     )
   }
 
@@ -52,10 +61,7 @@ export class EditTecnicaturaComponent implements OnInit {
   onSubmit() {
     console.log('Enviando');
     const tecnicatura = new Tecnicatura(this.dataForm.value.tecnicatura.nombre, this.dataForm.value.tecnicatura.duracion, this.dataForm.value.tecnicatura.cantidadAsignaturas, this.dataForm.value.tecnicatura.numeroDeResolucion);
-    this.tecnicaturaService.postTecnicatura(tecnicatura).subscribe(
-      response => { console.log(response) },
-      error => { console.log(error) }
-    );
+    this.tecnicaturaService.putTecnicatura(this.tecnicaturaId,tecnicatura);
   }
 
 }

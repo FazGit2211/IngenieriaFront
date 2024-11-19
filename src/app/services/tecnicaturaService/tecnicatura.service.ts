@@ -24,4 +24,14 @@ export class TecnicaturaService {
   getByIdTecnicatura(id:number): Observable<any>{
     return this.http.get<any>(this.url+'/'+id);
   }
+
+  //actualizar tecnicatura
+  putTecnicatura(id:number, tecnicatura:Tecnicatura): Observable<any>{
+    return this.http.put<any>(this.url+'/'+id,tecnicatura);
+  }
+
+  //eliminar tecnicatura
+  deleteTecnicatura(id:number): Observable<any>{
+    return this.http.delete<any>(this.url+'/'+id);
+  }
 }
