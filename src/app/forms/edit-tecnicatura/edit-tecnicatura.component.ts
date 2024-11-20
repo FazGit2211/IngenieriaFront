@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { TecnicaturaService } from '../../services/tecnicaturaService/tecnicatura.service';
 import { Tecnicatura } from '../../../backend/tecnicatura/tecnicatura';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -18,7 +18,7 @@ export class EditTecnicaturaComponent implements OnInit {
   //variable para el id seleccionado desde el componente tecnicatura
   tecnicaturaId: any;
   dataForm: FormGroup;
-  constructor(private router: ActivatedRoute, private formBuilder: FormBuilder, private tecnicaturaService: TecnicaturaService) {
+  constructor(private router: ActivatedRoute, private formBuilder: FormBuilder, private tecnicaturaService: TecnicaturaService, private routerNavigate: Router) {
     this.dataForm = this.formBuilder.group({
       tecnicatura: this.formBuilder.group({
         nombre: [''],
@@ -62,7 +62,7 @@ export class EditTecnicaturaComponent implements OnInit {
     console.log('Enviando');
     const tecnicatura = new Tecnicatura(this.dataForm.value.tecnicatura.nombre, this.dataForm.value.tecnicatura.duracion, this.dataForm.value.tecnicatura.cantidadAsignaturas, this.dataForm.value.tecnicatura.numeroDeResolucion);
     this.tecnicaturaService.putTecnicatura(this.tecnicaturaId,tecnicatura).subscribe(
-      response => {console.log(response)},
+      response => {console.log(response), this.routerNavigate.navigate(['tecnicatura'])},
       error => console.error(error)
     );
   }

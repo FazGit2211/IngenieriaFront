@@ -9,22 +9,29 @@ import { TecnicaturaService } from '../services/tecnicaturaService/tecnicatura.s
   templateUrl: './tecnicatura.component.html',
   styleUrl: './tecnicatura.component.scss'
 })
-export class TecnicaturaComponent implements OnInit{
+export class TecnicaturaComponent implements OnInit {
 
   tecnicaturas: any;
-  constructor(private tecnicaturaService: TecnicaturaService){}
+  constructor(private tecnicaturaService: TecnicaturaService) { }
 
   ngOnInit(): void {
-      this.tecnicaturaService.getAllData().subscribe(
-        response => {this.tecnicaturas = response;},error => {console.log(error)}
-      )
+    this.tecnicaturaService.getAllData().subscribe(
+      response => { this.tecnicaturas = response; }, error => { console.log(error) }
+    )
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.tecnicaturas)
   }
 
-  eliminar(id:number){
+  eliminar(id: number) {
     console.log(id);
+    this.tecnicaturaService.deleteTecnicatura(id).subscribe(
+      response => {
+        console.log(response),
+        this.tecnicaturas = this.tecnicaturas.filter((tecnicatura:any) => tecnicatura.id !== id);
+      },
+      error => { console.error(error) }
+    )
   }
 }
