@@ -26,5 +26,9 @@ export class TecnicaturaComponent implements OnInit{
 
   eliminar(id:number){
     console.log(id);
+    this.tecnicaturaService.deleteTecnicatura(id).subscribe(
+      response => {console.log(response)},
+      error => {console.error(error)}
+    );
   }
 }
