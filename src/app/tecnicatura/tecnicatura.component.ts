@@ -20,6 +20,7 @@ export class TecnicaturaComponent implements OnInit {
     )
   }
 
+
   onSubmit() {
     console.log(this.tecnicaturas)
   }
@@ -34,4 +35,5 @@ export class TecnicaturaComponent implements OnInit {
       error => { console.error(error) }
     )
   }
+
 }

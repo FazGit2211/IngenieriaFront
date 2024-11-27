@@ -1,0 +1,40 @@
+<h2>Listado de Alumnos en la Tecnicatura</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha_nacimiento</th>
+            <th>Dni_pasaporte</th>
+            <th>Genero</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Partido</th>
+            <th>Calle</th>
+            <th>Numero</th>
+            <th>Piso</th>
+            <th>Departamento</th>
+            <th>Pasillo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(alum of alumnos; track alum.id){
+        <tr>
+            <td>{{ alum.nombre }}</td>
+            <td>{{ alum.apellido }}</td>
+            <td>{{ alum.fechaNacimiento}}</td>
+            <td>{{ alum.dniPasaporte }}</td>
+            <td>{{ alum.genero }}</td>
+            <td>{{ alum.email }}</td>
+            <td>{{ alum.telefono }}</td>
+            <td>{{ alum.partido }}</td>
+            <td>{{ alum.calle }}</td>
+            <td>{{ alum.numero }}</td>
+            <td>{{ alum.piso }}</td>
+            <td>{{ alum.departamento }}</td>
+            <td>{{ alum.pasillo }}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+<button (click)="verificar()">Verificar</button>
