@@ -15,15 +15,13 @@ export class ListaAluTecComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const state = history.state;
-    if (state && state.length > 0) {
-      this.alumnos = state;
-    } else {
-      this.alumnos = [];
-    }
+    // Accede al estado enviado
+    this.route.root.queryParams.subscribe(
+      response => {console.log(response)}
+    )
   }
 
-  verificar(){
+  verificar() {
     console.log(this.alumnos)
   }
 

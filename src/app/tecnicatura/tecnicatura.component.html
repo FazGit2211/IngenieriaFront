@@ -17,9 +17,8 @@
             <td>{{tec.duracion}}</td>
             <td>{{tec.cantidadAsignaturas}}</td>
             <td>{{tec.numeroResolucion}}</td>
-            <td><button [routerLink]="['/editTecForm', tec.id]">Editar</button><button (click)="eliminar(tec.id)">Eliminar</button><button [routerLink]="['/listAlumTec']" [state]="tec.alumnos">Ver Listado Alumnos</button></td>
+            <td><button [routerLink]="['/editTecForm', tec.id]">Editar</button><button (click)="eliminar(tec.id)">Eliminar</button><button [routerLink]="['/listAlumTec']" [state]="tec.alumnos">Ver Listado Alumnos</button><button [routerLink]="['/listaInscripcion', tec.id]">Agregar Alumno</button></td>
         </tr>
         }
     </tbody>
 </table>
-<button (click)="onSubmit()">Enviar</button>
