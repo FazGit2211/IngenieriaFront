@@ -23,7 +23,7 @@ export class TecnicaturaComponent implements OnInit{
   eliminar(id:number){
     console.log(id);
     this.tecnicaturaService.deleteTecnicatura(id).subscribe(
-      response => {console.log(response)},
+      response => {console.log(response),this.tecnicaturas = this.tecnicaturas.filter((tecnicatura:any) => tecnicatura.id !== id);},
       error => {console.error(error)}
     );
   }
