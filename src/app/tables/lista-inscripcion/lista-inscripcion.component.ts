@@ -14,6 +14,7 @@ export class ListaInscripcionComponent implements OnInit {
 
   alumnos: any[] = [];
   tecnicaturaId: any;
+  nombreTecnicatura: any;
 
   constructor(private alumnoService: AlumnoServiceService, private router: ActivatedRoute, private TecnicaturaService: TecnicaturaService) { }
 
@@ -24,7 +25,7 @@ export class ListaInscripcionComponent implements OnInit {
 
     //obtener el parámetro en la URL
     this.router.paramMap.subscribe(
-      params => { this.tecnicaturaId = params.get('id'); console.log(this.tecnicaturaId) },
+      params => { this.tecnicaturaId = params.get('id'); this.nombreTecnicatura = params.get('nombre') },
       error => { console.log(error) }
     );
   }

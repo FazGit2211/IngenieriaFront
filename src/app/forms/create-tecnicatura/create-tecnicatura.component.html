@@ -1,18 +1,20 @@
-<form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
-    <div formGroupName="tecnicatura">
-        <h3>Información Tecnicaturas</h3>
-        <label for="nombre">Nombre:</label>
-        <input type="text" formControlName="nombre" class="form-control">
-        <br />
-        <label for="duracion">Duración:</label>
-        <input type="number" formControlName="duracion" class="form-control">
-        <br />
-        <label for="cantidadAsignaturas">Cantidad de Asignaturas:</label>
-        <input type="number" formControlName="cantidadAsignaturas" class="form-control">
-        <br />
-        <label for="numeroDeResolucion">Número de Resolucion:</label>
-        <input type="number" formControlName="numeroDeResolucion" class="form-control">
-    </div>
-    <button type="button" (click)="onClick()" class="btn btn-secondary m-1">Verificar</button>
-    <button type="submit" [disabled]="!dataForm.valid" class="btn btn-primary m-1">Enviar</button>
-</form>
+<div class="container">
+    <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+        <div formGroupName="tecnicatura">
+            <h3>Información Tecnicaturas</h3>
+            <label for="nombre">Nombre:</label>
+            <input type="text" formControlName="nombre" class="form-control">
+            <br />
+            <label for="duracion">Duración:</label>
+            <input type="number" formControlName="duracion" class="form-control">
+            <br />
+            <label for="cantidadAsignaturas">Cantidad de Asignaturas:</label>
+            <input type="number" formControlName="cantidadAsignaturas" class="form-control">
+            <br />
+            <label for="numeroDeResolucion">Número de Resolucion:</label>
+            <input type="number" formControlName="numeroDeResolucion" class="form-control">
+        </div>
+        <button type="button" (click)="onClick()" class="btn btn-secondary m-1">Verificar</button>
+        <button type="submit" [disabled]="!dataForm.valid" class="btn btn-primary m-1">Enviar</button>
+    </form>
+</div>

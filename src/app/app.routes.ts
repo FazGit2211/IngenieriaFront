@@ -19,11 +19,11 @@ export const routes: Routes = [
         component: EditTecnicaturaComponent
     },
     {
-        'path': 'listAlumTec',
+        'path': 'listAlumTec/:nombre',
         component: ListaAluTecComponent
     },
     {
-        'path': 'listaInscripcion/:id',
+        'path': 'listaInscripcion/:id/:nombre',
         component: ListaInscripcionComponent
     }
 ];

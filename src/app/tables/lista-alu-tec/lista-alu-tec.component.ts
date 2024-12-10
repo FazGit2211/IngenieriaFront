@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AlumnoServiceService } from '../../services/alumno-service.service';
 
 @Component({
   selector: 'app-lista-alu-tec',
@@ -10,19 +11,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListaAluTecComponent implements OnInit {
 
-  alumnos: any[] = [];
+  alumnosTecnicatura: any[] = [];
+  nombreTecnicatura: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private alumnoService: AlumnoServiceService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // Accede al estado enviado
-    this.route.root.queryParams.subscribe(
-      response => {console.log(response)}
-    )
+    // Asignar los alumnos de la tecnicatura
+    this.alumnosTecnicatura = this.alumnoService.getAlumnos();
+
+     //obtener el parámetro en la URL
+     this.router.paramMap.subscribe(
+      params => { this.nombreTecnicatura = params.get('nombre'); console.log(this.nombreTecnicatura) },
+      error => { console.log(error) }
+    );
   }
 
   verificar() {
-    console.log(this.alumnos)
+    console.log(this.alumnosTecnicatura)
   }
 
 }
