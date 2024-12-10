@@ -10,23 +10,32 @@ import { AlumnoServiceService } from '../services/alumno-service.service';
   templateUrl: './tecnicatura.component.html',
   styleUrl: './tecnicatura.component.scss'
 })
-export class TecnicaturaComponent implements OnInit{
+export class TecnicaturaComponent implements OnInit {
 
   tecnicaturas: any;
-  constructor(private tecnicaturaService: TecnicaturaService, private alumnoService: AlumnoServiceService, private router: Router){}
+
+  constructor(private tecnicaturaService: TecnicaturaService, private alumnoService: AlumnoServiceService, private router: Router) { }
 
   ngOnInit(): void {
-      this.tecnicaturaService.getAllData().subscribe(
-        response => {this.tecnicaturas = response;},error => {console.log(error)}
-      )
+    this.tecnicaturaService.getAllData().subscribe(
+      response => { this.tecnicaturas = response; }, error => { console.log(error) }
+    )
   }
 
-  eliminar(id:number){
+
+  onSubmit() {
+    console.log(this.tecnicaturas)
+  }
+
+  eliminar(id: number) {
     console.log(id);
     this.tecnicaturaService.deleteTecnicatura(id).subscribe(
-      response => {console.log(response),this.tecnicaturas = this.tecnicaturas.filter((tecnicatura:any) => tecnicatura.id !== id);},
-      error => {console.error(error)}
-    );
+      response => {
+        console.log(response),
+        this.tecnicaturas = this.tecnicaturas.filter((tecnicatura:any) => tecnicatura.id !== id);
+      },
+      error => { console.error(error) }
+    )
   }
 
   //accion del btn verListadoAlumno redireccionar al componente
