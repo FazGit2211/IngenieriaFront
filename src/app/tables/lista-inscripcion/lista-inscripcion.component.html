@@ -1,5 +1,5 @@
 <h2>Listado de Alumnos</h2>
-<table>
+<table class="table table-striped mt-3">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -12,9 +12,6 @@
             <th>Partido</th>
             <th>Calle</th>
             <th>Numero</th>
-            <th>Piso</th>
-            <th>Departamento</th>
-            <th>Pasillo</th>
             <th>Resolucion de la Tecnicatura</th>
             <th>Estado de la Resolucion</th>
         </tr>
@@ -32,12 +29,9 @@
             <td>{{ alum.partido }}</td>
             <td>{{ alum.calle }}</td>
             <td>{{ alum.numero }}</td>
-            <td>{{ alum.piso }}</td>
-            <td>{{ alum.departamento }}</td>
-            <td>{{ alum.pasillo }}</td>
             <td>{{ alum.resolucion }}</td>
             <td>{{ alum.estadoResolucion }}</td>
-            <button (click)="agregarAlumno(alum.id)">Agregar a la Tecnicatura</button>
+            <button (click)="agregarAlumno(alum.id)" class="btn btn-primary">Agregar a {{nombreTecnicatura}}</button>
         </tr>
         }
     </tbody>

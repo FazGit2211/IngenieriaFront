@@ -1,4 +1,4 @@
-<h2>Listado de Alumnos en la Tecnicatura</h2>
+<h2>Listado de Alumnos en {{nombreTecnicatura}}</h2>
 <table>
     <thead>
         <tr>
@@ -18,7 +18,7 @@
         </tr>
     </thead>
     <tbody>
-        @for(alum of alumnos; track alum.id){
+        @for(alum of alumnosTecnicatura; track alum.id){
         <tr>
             <td>{{ alum.nombre }}</td>
             <td>{{ alum.apellido }}</td>

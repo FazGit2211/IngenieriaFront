@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TecnicaturaService } from '../services/tecnicaturaService/tecnicatura.service';
+import { AlumnoServiceService } from '../services/alumno-service.service';
 
 @Component({
   selector: 'app-tecnicatura',
@@ -12,7 +13,7 @@ import { TecnicaturaService } from '../services/tecnicaturaService/tecnicatura.s
 export class TecnicaturaComponent implements OnInit{
 
   tecnicaturas: any;
-  constructor(private tecnicaturaService: TecnicaturaService){}
+  constructor(private tecnicaturaService: TecnicaturaService, private alumnoService: AlumnoServiceService, private router: Router){}
 
   ngOnInit(): void {
       this.tecnicaturaService.getAllData().subscribe(
@@ -26,6 +27,12 @@ export class TecnicaturaComponent implements OnInit{
       response => {console.log(response),this.tecnicaturas = this.tecnicaturas.filter((tecnicatura:any) => tecnicatura.id !== id);},
       error => {console.error(error)}
     );
+  }
+
+  //accion del btn verListadoAlumno redireccionar al componente
+  verListado(nombreTecnicatura:string){
+    this.alumnoService.setAlumnos(this.tecnicaturas.alumnos);
+    this.router.navigate(['/listAlumTec', nombreTecnicatura]);
   }
 
 }

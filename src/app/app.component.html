@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>App</title>
 </head>
+
 <body>
   <header>
-    <app-nav-bar/>
+    <app-nav-bar />
   </header>
+  <main>
+    <div class="card m-1">
+      <div class="card-header">
+        <h3>Instituto Súperior Nº12</h3>
+      </div>
+      <div class="card-body">
+        <p><strong> Sección para la Administración de las tecnicaturas y alumnos mediante los enlaces desde la barra de
+          navegación.</strong>
+        </p>
+        <router-outlet />
+      </div>
+    </div>
+  </main>
+  <footer>
+    <app-footer />
+  </footer>
 </body>
+
 </html>
-<router-outlet />
