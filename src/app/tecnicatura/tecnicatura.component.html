@@ -19,7 +19,7 @@
                 <td>{{tec.cantidadAsignaturas}}</td>
                 <td>{{tec.numeroResolucion}}</td>
                 <td><button [routerLink]="['/editTecForm', tec.id]" class="btn btn-secondary m-1">Editar</button><button
-                        (click)="eliminar(tec.id)" class="btn btn-danger m-1">Eliminar</button><button (click)="verListado(tec.nombre)" class="btn btn-dark m-1">Ver Listado
+                        (click)="eliminar(tec.id)" class="btn btn-danger m-1">Eliminar</button><button (click)="verListado(tec.nombre,tec.id)" class="btn btn-dark m-1">Ver Listado
                         Alumnos</button><button [routerLink]="['/listaInscripcion', tec.id, tec.nombre]" class="btn btn-primary">Agregar Alumno</button>
                 </td>
             </tr>

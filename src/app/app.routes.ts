@@ -19,7 +19,7 @@ export const routes: Routes = [
         component: EditTecnicaturaComponent
     },
     {
-        'path': 'listAlumTec/:nombre',
+        'path': 'listAlumTec/:nombre/:id',
         component: ListaAluTecComponent
     },
     {

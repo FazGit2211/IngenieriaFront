@@ -8,13 +8,9 @@
             <th>Dni_pasaporte</th>
             <th>Genero</th>
             <th>Email</th>
-            <th>Telefono</th>
-            <th>Partido</th>
-            <th>Calle</th>
-            <th>Numero</th>
-            <th>Piso</th>
-            <th>Departamento</th>
-            <th>Pasillo</th>
+            <th>Nº de Resolución</th>
+            <th>Estado de Vigencia de la Resolución</th>
+            <th>Fecha de caducidad de la Resolución</th>
         </tr>
     </thead>
     <tbody>
@@ -26,15 +22,10 @@
             <td>{{ alum.dniPasaporte }}</td>
             <td>{{ alum.genero }}</td>
             <td>{{ alum.email }}</td>
-            <td>{{ alum.telefono }}</td>
-            <td>{{ alum.partido }}</td>
-            <td>{{ alum.calle }}</td>
-            <td>{{ alum.numero }}</td>
-            <td>{{ alum.piso }}</td>
-            <td>{{ alum.departamento }}</td>
-            <td>{{ alum.pasillo }}</td>
+            <td>{{ alum.resolucion }}</td>
+            <td>{{ alum.estadoVigenciaResolucion }}</td>
+            <td>{{ alum.fechaCaducidadResolucion }}</td>
         </tr>
         }
     </tbody>
 </table>
-<button (click)="verificar()">Verificar</button>
