@@ -24,7 +24,9 @@ export class EditTecnicaturaComponent implements OnInit {
         nombre: [''],
         duracion: [''],
         cantidadAsignaturas: [''],
-        numeroDeResolucion: ['']
+        numeroDeResolucion: [''],
+        estadoVigenciaResolucion: [''],
+        fechaCaducidadResolucion: ['']
       })
     })
   }
@@ -43,7 +45,9 @@ export class EditTecnicaturaComponent implements OnInit {
             nombre: response.nombre,
             duracion: response.duracion,
             cantidadAsignaturas: response.cantidadAsignaturas,
-            numeroDeResolucion: response.numeroResolucion
+            numeroDeResolucion: response.numeroResolucion,
+            estadoVigenciaResolucion: response.estadoVigenciaResolucion,
+            fechaCaducidadResolucion: response.fechaCaducidadResolucion
           }
         })
       },
@@ -60,9 +64,9 @@ export class EditTecnicaturaComponent implements OnInit {
 
   onSubmit() {
     console.log('Enviando');
-    const tecnicatura = new Tecnicatura(this.dataForm.value.tecnicatura.nombre, this.dataForm.value.tecnicatura.duracion, this.dataForm.value.tecnicatura.cantidadAsignaturas, this.dataForm.value.tecnicatura.numeroDeResolucion);
-    this.tecnicaturaService.putTecnicatura(this.tecnicaturaId,tecnicatura).subscribe(
-      response => {console.log(response), this.routerNavigate.navigate(['tecnicatura'])},
+    const tecnicatura = new Tecnicatura(this.dataForm.value.tecnicatura.nombre, this.dataForm.value.tecnicatura.duracion, this.dataForm.value.tecnicatura.cantidadAsignaturas, this.dataForm.value.tecnicatura.numeroDeResolucion, this.dataForm.value.tecnicatura.estadoVigenciaResolucion,this.dataForm.value.tecnicatura.fechaCaducidadResolucion);
+    this.tecnicaturaService.putTecnicatura(this.tecnicaturaId, tecnicatura).subscribe(
+      response => { console.log(response), this.routerNavigate.navigate(['tecnicatura']) },
       error => console.error(error)
     );
   }

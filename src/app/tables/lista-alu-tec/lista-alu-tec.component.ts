@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlumnoServiceService } from '../../services/alumno-service.service';
+import { TecnicaturaService } from '../../services/tecnicaturaService/tecnicatura.service';
 
 @Component({
   selector: 'app-lista-alu-tec',
@@ -11,24 +11,33 @@ import { AlumnoServiceService } from '../../services/alumno-service.service';
 })
 export class ListaAluTecComponent implements OnInit {
 
-  alumnosTecnicatura: any[] = [];
+  alumnosTecnicatura: any;
   nombreTecnicatura: any;
+  idTecnicatura: any;
 
-  constructor(private alumnoService: AlumnoServiceService, private router: ActivatedRoute) { }
+  constructor(private tecnicaturaService: TecnicaturaService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // Asignar los alumnos de la tecnicatura
-    this.alumnosTecnicatura = this.alumnoService.getAlumnos();
-
      //obtener el parámetro en la URL
      this.router.paramMap.subscribe(
-      params => { this.nombreTecnicatura = params.get('nombre'); console.log(this.nombreTecnicatura) },
+      params => { this.nombreTecnicatura = params.get('nombre'); this.idTecnicatura = params.get('id') },
       error => { console.log(error) }
     );
+
+    //llamar servicio tecnicatura para obtener también a sus alumnos
+    this.tecnicaturaService.getByIdTecnicatura(this.idTecnicatura).subscribe(
+      response => {this.obtenerAlumnos(response); console.log(response)},
+      error => {console.error(error)}
+    )
+
   }
 
-  verificar() {
-    console.log(this.alumnosTecnicatura)
+  obtenerAlumnos(resp:any) {
+    Object.entries(resp).forEach(([clave, valor]) => {
+      if(Array.isArray(valor)){
+        this.alumnosTecnicatura = valor
+      }
+    });
   }
 
 }

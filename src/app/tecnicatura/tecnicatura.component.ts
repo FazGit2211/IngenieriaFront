@@ -39,9 +39,9 @@ export class TecnicaturaComponent implements OnInit {
   }
 
   //accion del btn verListadoAlumno redireccionar al componente
-  verListado(nombreTecnicatura:string){
+  verListado(nombreTecnicatura:string, idTecnicatura: number){
     this.alumnoService.setAlumnos(this.tecnicaturas.alumnos);
-    this.router.navigate(['/listAlumTec', nombreTecnicatura]);
+    this.router.navigate(['/listAlumTec', nombreTecnicatura, idTecnicatura]);
   }
 
 }
