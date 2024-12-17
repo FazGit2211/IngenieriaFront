@@ -13,8 +13,10 @@
             <br />
             <label for="numeroDeResolucion">Número de Resolucion:</label>
             <input type="number" formControlName="numeroDeResolucion" class="form-control">
+            <label for="estadoVigenciaResolucion">Estado de Vigencia:</label>
+            <input type="text" formControlName="estadoVigenciaResolucion" class="form-control">
         </div>
         <button type="button" (click)="onClick()" class="btn btn-secondary m-1">Verificar</button>
-        <button type="submit" [disabled]="!dataForm.valid" class="btn btn-primary m-1">Enviar</button>
+        <button type="submit" class="btn btn-primary m-1">Enviar</button>
     </form>
 </div>

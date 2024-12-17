@@ -18,7 +18,7 @@ export class TecnicaturaComponent implements OnInit {
 
   ngOnInit(): void {
     this.tecnicaturaService.getAllData().subscribe(
-      response => { this.tecnicaturas = response; }, error => { console.log(error) }
+      response => { this.tecnicaturas = response; console.log(response)}, error => { console.log(error) }
     )
   }
 
