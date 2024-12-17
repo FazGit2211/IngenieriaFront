@@ -8,6 +8,7 @@
                 <th>Duracion</th>
                 <th>Cantidad Asignaturas</th>
                 <th>Numero de Resolucion</th>
+                <th>Estado de Resolucion</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
                 <td>{{tec.duracion}}</td>
                 <td>{{tec.cantidadAsignaturas}}</td>
                 <td>{{tec.numeroResolucion}}</td>
+                <td>{{tec.estadoVigencia}}</td>
                 <td><button [routerLink]="['/editTecForm', tec.id]" class="btn btn-secondary m-1">Editar</button><button
                         (click)="eliminar(tec.id)" class="btn btn-danger m-1">Eliminar</button><button (click)="verListado(tec.nombre,tec.id)" class="btn btn-dark m-1">Ver Listado
                         Alumnos</button><button [routerLink]="['/listaInscripcion', tec.id, tec.nombre]" class="btn btn-primary">Agregar Alumno</button>
