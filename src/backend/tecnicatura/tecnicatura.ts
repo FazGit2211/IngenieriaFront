@@ -3,15 +3,15 @@ export class Tecnicatura {
     private duracion: number
     private cantidadAsignaturas: number
     private numeroResolucion: string
-    private estadoVigenciaResolucion: string
-    private fechaCaducidadResolucion: string
+    private estadoVigencia: string
+    private fechaCaducidad: string
 
-    constructor(nom: string, duracion: number, asignaturas: number, numResolucion: string, vigenciaResolucion: string, caducidadResolucion:string) {
+    constructor(nom: string, duracion: number, asignaturas: number, numResolucion: string, estado: string, caducidad:string) {
         this.nombre = nom;
         this.duracion = duracion;
         this.cantidadAsignaturas = asignaturas;
         this.numeroResolucion = numResolucion;
-        this.estadoVigenciaResolucion = vigenciaResolucion;
-        this.fechaCaducidadResolucion = caducidadResolucion;
+        this.estadoVigencia = estado;
+        this.fechaCaducidad = caducidad;
     }
 }

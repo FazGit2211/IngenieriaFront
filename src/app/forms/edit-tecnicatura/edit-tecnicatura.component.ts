@@ -46,10 +46,10 @@ export class EditTecnicaturaComponent implements OnInit {
             duracion: response.duracion,
             cantidadAsignaturas: response.cantidadAsignaturas,
             numeroDeResolucion: response.numeroResolucion,
-            estadoVigenciaResolucion: response.estadoVigenciaResolucion,
-            fechaCaducidadResolucion: response.fechaCaducidadResolucion
+            estadoVigenciaResolucion: response.estadoVigencia,
+            fechaCaducidadResolucion: response.fechaCaducidad
           }
-        })
+        }), console.log(response)
       },
       error => { console.error(error) }
     )

@@ -21,8 +21,8 @@ export class CreateTecnicaturaComponent {
         duracion: [''],
         cantidadAsignaturas: [''],
         numeroDeResolucion: [''],
-        estadoVigenciaResolucion: [''],
-        fechaCaducidadResolucion: ['']
+        estadoResolucion: [''],
+        fechaCaducidad: ['']
       })
     })
   }
@@ -38,7 +38,14 @@ export class CreateTecnicaturaComponent {
 
   onSubmit() {
     console.log('Enviando');
-    const tecnicatura = new Tecnicatura(this.dataForm.value.tecnicatura.nombre,this.dataForm.value.tecnicatura.duracion,this.dataForm.value.tecnicatura.cantidadAsignaturas,this.dataForm.value.tecnicatura.numeroDeResolucion, this.dataForm.value.tecnicatura.estadoVigenciaResolucion, this.dataForm.value.tecnicatura.fechaCaducidadResolucion);
+    let nombre = this.dataForm.value.tecnicatura.nombre;
+    let duracion = this.dataForm.value.tecnicatura.duracion;
+    let asignaturas = this.dataForm.value.tecnicatura.cantidadAsignaturas;
+    let resolucion = this.dataForm.value.tecnicatura.numeroDeResolucion;
+    let estadoResolucion = this.dataForm.value.tecnicatura.estadoResolucion;
+    let fechaVencimiento = this.dataForm.value.tecnicatura.fechaCaducidad;
+    
+    const tecnicatura = new Tecnicatura(nombre,duracion,asignaturas,resolucion,estadoResolucion,fechaVencimiento);
     console.log(tecnicatura);
     this.tecnicaturaService.postTecnicatura(tecnicatura).subscribe(
       response => {console.log(response), this.router.navigate(['tecnicatura'])},

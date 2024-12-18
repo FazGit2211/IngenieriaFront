@@ -32,7 +32,7 @@ export class TecnicaturaComponent implements OnInit {
     this.tecnicaturaService.deleteTecnicatura(id).subscribe(
       response => {
         console.log(response),
-        this.tecnicaturas = this.tecnicaturas.filter((tecnicatura:any) => tecnicatura.id !== id);
+        this.router.navigate(['/tecnicatura']);
       },
       error => { console.error(error) }
     )

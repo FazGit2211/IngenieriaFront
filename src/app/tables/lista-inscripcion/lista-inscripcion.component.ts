@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnoServiceService } from '../../services/alumno-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TecnicaturaService } from '../../services/tecnicaturaService/tecnicatura.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class ListaInscripcionComponent implements OnInit {
   tecnicaturaId: any;
   nombreTecnicatura: any;
 
-  constructor(private alumnoService: AlumnoServiceService, private router: ActivatedRoute, private TecnicaturaService: TecnicaturaService) { }
+  constructor(private alumnoService: AlumnoServiceService, private router: ActivatedRoute, private TecnicaturaService: TecnicaturaService, private routerNav: Router) { }
 
   ngOnInit(): void {
     this.alumnoService.getAllData().subscribe(
@@ -33,7 +33,7 @@ export class ListaInscripcionComponent implements OnInit {
   agregarAlumno(idAlum: number){
     console.log(idAlum);
     this.TecnicaturaService.addAlumno(this.tecnicaturaId,idAlum).subscribe(
-      response => {console.log(response)}
+      response => {console.log(response), this.routerNav.navigate(['listAlumTec'])}
     )
   }
 
