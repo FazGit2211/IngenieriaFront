@@ -40,4 +40,14 @@ export class ListaAluTecComponent implements OnInit {
     });
   }
 
+  eliminarAlum(alumId: number){
+    this.tecnicaturaService.removeAlumno(this.idTecnicatura,alumId).subscribe(
+      response => {console.log(response)},
+      error => {console.error(error)}
+    );
+    if(Array.isArray(this.alumnosTecnicatura)){
+      this.alumnosTecnicatura = this.alumnosTecnicatura.filter(alum => alum.id !== alumId)
+    }
+  }
+
 }

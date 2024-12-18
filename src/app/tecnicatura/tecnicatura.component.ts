@@ -31,11 +31,13 @@ export class TecnicaturaComponent implements OnInit {
     console.log(id);
     this.tecnicaturaService.deleteTecnicatura(id).subscribe(
       response => {
-        console.log(response),
-        this.router.navigate(['/tecnicatura']);
+        console.log(response)        
       },
       error => { console.error(error) }
-    )
+    );
+    if(Array.isArray(this.tecnicaturas)){
+      this.tecnicaturas = this.tecnicaturas.filter(tec => tec.id !== id);
+    }
   }
 
   //accion del btn verListadoAlumno redireccionar al componente

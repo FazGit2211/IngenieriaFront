@@ -30,11 +30,20 @@ export class ListaInscripcionComponent implements OnInit {
     );
   }
 
-  agregarAlumno(idAlum: number){
+  agregarAlumno(idAlum: number) {
     console.log(idAlum);
-    this.TecnicaturaService.addAlumno(this.tecnicaturaId,idAlum).subscribe(
-      response => {console.log(response), this.routerNav.navigate(['listAlumTec'])}
+    this.TecnicaturaService.addAlumno(this.tecnicaturaId, idAlum).subscribe(
+      response => { console.log(response), this.routerNav.navigate(['listAlumTec']) }
     )
+  }
+
+  eliminarAlum(alumId: number) {
+    this.alumnoService.removeAlumnoById(alumId).subscribe(
+      response => {console.log(response)}
+    );
+    if(Array.isArray(this.alumnos)){
+      this.alumnos = this.alumnos.filter(alum => alum.id !== alumId);
+    }
   }
 
 }

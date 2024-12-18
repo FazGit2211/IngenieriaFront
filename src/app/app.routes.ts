@@ -4,6 +4,7 @@ import { CreateTecnicaturaComponent } from './forms/create-tecnicatura/create-te
 import { EditTecnicaturaComponent } from './forms/edit-tecnicatura/edit-tecnicatura.component';
 import { ListaAluTecComponent } from './tables/lista-alu-tec/lista-alu-tec.component';
 import { ListaInscripcionComponent } from './tables/lista-inscripcion/lista-inscripcion.component';
+import { AlumnoComponent } from './alumno/alumno.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         'path': 'listaInscripcion/:id/:nombre',
         component: ListaInscripcionComponent
+    },
+    {
+        'path': 'alumno',
+        component: AlumnoComponent
     }
 ];

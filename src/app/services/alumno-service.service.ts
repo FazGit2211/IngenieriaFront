@@ -21,8 +21,13 @@ export class AlumnoServiceService {
     this.alumnos = alumnos;
   }
 
-  //obtener el arrat con los alumnos
+  //obtener el array con los alumnos
   getAlumnos(): any[] {
     return this.alumnos;
+  }
+
+  //eliminar alumno
+  removeAlumnoById(idAlumno:number): Observable<any>{
+    return this.http.delete<any>(this.url+'/'+idAlumno);
   }
 }

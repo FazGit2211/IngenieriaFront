@@ -1,0 +1,41 @@
+<main>
+    <h1>Listado de Alumnos</h1>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Dni/Pasaporte</th>
+                <th>Género</th>
+                <th>Email</th>
+                <th>Escuela Secundaria</th>
+                <th>Anio egreso</th>
+                <th>Telefono</th>
+                <th>Partido</th>
+                <th>Calle</th>
+                <th>Numero</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(alum of alumnos; track alum.id){
+            <tr>
+                <td>{{alum.nombre}}</td>
+                <td>{{ alum.apellido }}</td>
+                <td>{{ alum.fechaNacimiento}}</td>
+                <td>{{ alum.dniPasaporte }}</td>
+                <td>{{ alum.genero }}</td>
+                <td>{{ alum.email }}</td>
+                <td>{{alum.escuelaSecundaria}}</td>
+                <td>{{alum.anioEgreso}}</td>
+                <td>{{alum.telefono}}</td>
+                <td>{{alum.partido}}</td>
+                <td>{{alum.calle}}</td>
+                <td>{{alum.numero}}</td>
+                <td></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</main>

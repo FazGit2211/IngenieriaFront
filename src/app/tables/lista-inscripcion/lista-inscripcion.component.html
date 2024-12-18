@@ -7,11 +7,7 @@
             <th>Fecha_nacimiento</th>
             <th>Dni_pasaporte</th>
             <th>Genero</th>
-            <th>Email</th>
-            <th>Telefono</th>
-            <th>Partido</th>
-            <th>Calle</th>
-            <th>Numero</th>
+            <th>Email</th>                                                
             <th>Resolucion de la Tecnicatura</th>
             <th>Estado de la Resolucion</th>
         </tr>
@@ -24,14 +20,10 @@
             <td>{{ alum.fechaNacimiento}}</td>
             <td>{{ alum.dniPasaporte }}</td>
             <td>{{ alum.genero }}</td>
-            <td>{{ alum.email }}</td>
-            <td>{{ alum.telefono }}</td>
-            <td>{{ alum.partido }}</td>
-            <td>{{ alum.calle }}</td>
-            <td>{{ alum.numero }}</td>
+            <td>{{ alum.email }}</td>                                                
             <td>{{ alum.resolucion }}</td>
             <td>{{ alum.estadoResolucion }}</td>
-            <button (click)="agregarAlumno(alum.id)" class="btn btn-primary">Agregar a {{nombreTecnicatura}}</button>
+            <td><button (click)="agregarAlumno(alum.id)" class="btn btn-primary">Agregar a {{nombreTecnicatura}}</button><button class="btn btn-danger" (click)="eliminarAlum(alum.id)">Eliminar</button></td>
         </tr>
         }
     </tbody>

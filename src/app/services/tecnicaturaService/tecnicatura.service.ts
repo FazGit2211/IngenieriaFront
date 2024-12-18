@@ -39,4 +39,9 @@ export class TecnicaturaService {
   addAlumno(idTecnicatura:number,idAlumno:number): Observable<any>{
     return this.http.put<any>(this.url+'/'+'addAlumno'+'/'+idTecnicatura+'/'+idAlumno,null);
   }
+
+  //eliminar a alumno del listado en una tecnicatura
+  removeAlumno(idTecnicatura:number,idAlumno:number): Observable<any>{
+    return this.http.delete<any>(this.url+'/'+'removeAlumno'+'/'+idTecnicatura+'/'+idAlumno);
+  }
 }
